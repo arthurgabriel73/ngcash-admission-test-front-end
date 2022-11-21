@@ -76,6 +76,7 @@ export default function Home() {
         }).then(async (res) => {
             if (res.ok) {
                setMessage('Transaction was successfully made.')
+                await getBalance()
                 await getTransactions()
             } else {
                 throw await res.json()
