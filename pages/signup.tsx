@@ -77,8 +77,8 @@ export default function SignUp() {
                 <input className={styles.boxes} placeholder="password" type="password" value={data.password}
                        onChange={(env) => setData({...data, password: env.target.value})}/>
                 <input className={styles.signup} type="submit" value="SIGN UP"/>
-                <p className={styles.commom}>Already have an account?  <Link className={styles.commom} href="/login">Sign in</Link>.</p>
-                <p>{message}</p>
+                <p className={styles.common}>Already have an account?  <Link className={styles.common} href="/login">Sign in</Link>.</p>
+                <p className={styles.common}>{message}</p>
             </form>
 
         </main>
