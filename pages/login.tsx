@@ -47,9 +47,9 @@ export default function Login() {
         <main className={styles.main}>
             <h1>NGCASH</h1>
             <form className={styles.container} onSubmit={loginUser}>
-                <input type="text" value={data.username}
+                <input type="text" placeholder="username" value={data.username}
                        onChange={(env) => setData({...data, username: env.target.value})}/>
-                <input type="password" value={data.password}
+                <input placeholder="password" type="password" value={data.password}
                        onChange={(env) => setData({...data, password: env.target.value})}/>
                 <input type="submit" value="login"/>
                 <p>Don't have an account? <Link href="/signup">SignUp</Link></p>
