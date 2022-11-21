@@ -114,7 +114,7 @@ export default function Home() {
         }).then(async (res) => {
             if (!res.ok) {
                 localStorage.removeItem("access_token")
-                await router.push('/signup')
+                await router.push('/login')
             }
         })
     }
