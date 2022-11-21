@@ -1,6 +1,5 @@
 html,
 body {
-
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -13,18 +12,20 @@ a {
 }
 
 * {
-  background-color: #303030;
+  background-color: #101010;
   box-sizing: border-box;
 }
 
 input, select{
+
   background: #3C3939;
   height: 35px;
   margin-bottom: 15px;
 }
 
 table, td, tr, th{
-  border: 2px solid #FFF;
+  margin: 2px auto;
+  border: 2px solid #454545;
   border-collapse: collapse;
 }
 

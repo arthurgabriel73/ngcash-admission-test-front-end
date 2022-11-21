@@ -71,14 +71,13 @@ export default function SignUp() {
 
     return (
         <main className={styles.main}>
-            <h1>NGCASH</h1>
             <form className={styles.container} onSubmit={createUser}>
-                <input placeholder="username" type="text" value={data.username}
+                <input className={styles.boxes} placeholder="username" type="text" value={data.username}
                        onChange={(env) => setData({...data, username: env.target.value})}/>
-                <input placeholder="password" type="password" value={data.password}
+                <input className={styles.boxes} placeholder="password" type="password" value={data.password}
                        onChange={(env) => setData({...data, password: env.target.value})}/>
-                <input type="submit" value="signup"/>
-                <p>If you are already registered, <Link href="/login">login</Link></p>
+                <input className={styles.signup} type="submit" value="SIGN UP"/>
+                <p className={styles.commom}>Already have an account?  <Link className={styles.commom} href="/login">Sign in</Link>.</p>
                 <p>{message}</p>
             </form>
 

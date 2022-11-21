@@ -141,9 +141,9 @@ export default function Home() {
       <Head>
         <title>NGCASH | Financial</title>
       </Head>
-        <main>
+        <main className={styles.main}>
             <p>Account balance: ${balance}</p>
-            <form onSubmit={transfer}>
+            <form onSubmit={transfer} >
                 <h1>Transaction</h1>
                 <input type="text" placeholder="name" value={transaction.username}
                        onChange={(env) => setTransaction({...transaction, username: env.target.value})}/>
