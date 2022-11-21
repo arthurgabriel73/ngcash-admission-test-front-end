@@ -114,14 +114,14 @@ export default function Home() {
         }).then(async (res) => {
             if (!res.ok) {
                 localStorage.removeItem("access_token")
-                await router.push('/login')
+                await router.push('/signup')
             }
         })
     }
 
     useEffect(() => {
-        getBalance()
         validateToken()
+        getBalance()
     }, [])
 
     useEffect(() => {
