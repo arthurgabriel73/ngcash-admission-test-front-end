@@ -18,30 +18,7 @@ export default function SignUp() {
 
     const [message, setMessage] = useState<string>("")
 
-    async function createUser(event: FormEvent) {
-        event.preventDefault()
-
-        await fetch(process.env.NEXT_PUBLIC_URL + 'users/signup', {
-            method: "Post",
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(async (res) => {
-            if (res.ok) {
-                setMessage("Account successfully created.")
-            } else {
-                throw await res.json()
-            }
-        }).catch(res => {
-            if (typeof res?.message != 'string') {
-                setMessage(res?.message[0])
-            } else {
-                setMessage(res?.message)
-            }
-        })
-
-
+    async function login() {
         await fetch(process.env.NEXT_PUBLIC_URL + 'auth/login', {
             method: "Post",
             body: JSON.stringify(data),
@@ -65,6 +42,31 @@ export default function SignUp() {
                     setMessage(res?.message)
                 }
             })
+    }
+
+    async function createUser(event: FormEvent) {
+        event.preventDefault()
+
+        await fetch(process.env.NEXT_PUBLIC_URL + 'users/signup', {
+            method: "Post",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(async (res) => {
+            if (res.ok) {
+                setMessage("Account successfully created.")
+                await login()
+            } else {
+                throw await res.json()
+            }
+        }).catch(res => {
+            if (typeof res?.message != 'string') {
+                setMessage(res?.message[0])
+            } else {
+                setMessage(res?.message)
+            }
+        })
     }
 
     return (

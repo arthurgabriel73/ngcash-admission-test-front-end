@@ -59,7 +59,7 @@ export default function Home() {
                 await router.push('/login')
             }
         }).then(res => {
-            setBalance(res["account_balance"])
+            setBalance(res?.account_balance)
         })
     }
 
@@ -76,6 +76,7 @@ export default function Home() {
         }).then(async (res) => {
             if (res.ok) {
                setMessage('Transaction was successfully made.')
+                await getTransactions()
             } else {
                 throw await res.json()
             }
@@ -103,6 +104,25 @@ export default function Home() {
             setTransactions(res)
         })
     }
+
+    async function validateToken(): Promise<void> {
+        await fetch(process.env.NEXT_PUBLIC_URL + 'auth/validate', {
+            method: "Get",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+            }
+        }).then(async (res) => {
+            if (!res.ok) {
+                localStorage.removeItem("access_token")
+                await router.push('/login')
+            }
+        })
+    }
+
+    useEffect(() => {
+        getBalance()
+        validateToken()
+    }, [])
 
     useEffect(() => {
         getBalance()
@@ -162,7 +182,10 @@ export default function Home() {
                     ))}
                 </tbody>
             </table>
-            <button>logout</button>
+            <button onClick={() => {
+                localStorage.removeItem("access_token")
+                router.push('/login')
+            }}>logout</button>
         </main>
     </div>
   )
