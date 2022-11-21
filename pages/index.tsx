@@ -142,22 +142,23 @@ export default function Home() {
         <title>NGCASH | Financial</title>
       </Head>
         <main className={styles.main}>
-            <p>Account balance: ${balance}</p>
-            <form onSubmit={transfer} >
-                <h1>Transaction</h1>
-                <input type="text" placeholder="name" value={transaction.username}
+            <p className={styles.actualBalance}>ACTUAL BALANCE</p>
+            <p className={styles.common}>${balance}</p>
+            <form className={styles.common} onSubmit={transfer} >
+                <h1 className={styles.common}>Transaction</h1>
+                <input className={styles.boxers} type="text" placeholder="name" value={transaction.username}
                        onChange={(env) => setTransaction({...transaction, username: env.target.value})}/>
-                <input type="number" placeholder="value" value={transaction.value}
+                <input className={styles.boxers} type="number" placeholder="value" value={transaction.value}
                        onChange={(env) => setTransaction({...transaction, value: env.target.value})}/>
-                <input type="submit" value="Transfer"/>
+                <input className={styles.button} type="submit" value="Transfer"/>
             </form>
-            <p>{message}</p>
+            <p className={styles.message}>{message}</p>
 
-            <div>
-                <h1>Filter</h1>
-                <input type="date" value={filter.day}
+            <div className={styles.filters}>
+                <h1 className={styles.common}>My Transactions</h1>
+                <input className={styles.boxers} type="date" value={filter.day}
                        onChange={(env) => setFilter({...filter, day: env.target.value})}/>
-                <select value={filter.type}
+                <select className={styles.boxers} value={filter.type}
                              onChange={(env) => setFilter({...filter, type: env.target.value})}>
                     <option value="cash-in">cash-in</option>
                     <option value="cash-out">cash-out</option>
@@ -168,22 +169,22 @@ export default function Home() {
             <table>
                 <tbody>
                     <tr>
-                        <th>Debited Account</th>
-                        <th>Credited Account</th>
-                        <th>Value</th>
-                        <th>Date</th>
+                        <th className={styles.tables}>Debited Account</th>
+                        <th className={styles.tables}>Credited Account</th>
+                        <th className={styles.tables}>Value</th>
+                        <th className={styles.tables}>Date</th>
                     </tr>
                     {transactions.map((_transaction: transactionsProps, index: number) => (
                         <tr key={index}>
                             <td>{_transaction.debitedAccount}</td>
                             <td>{_transaction.creditedAccount}</td>
-                            <td>{_transaction.value}</td>
+                            <td>$ {_transaction.value}</td>
                             <td>{formatDate(_transaction.createdAt)}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <button onClick={() => {
+            <button className={styles.button} onClick={() => {
                 localStorage.removeItem("access_token")
                 router.push('/login')
             }}>logout</button>

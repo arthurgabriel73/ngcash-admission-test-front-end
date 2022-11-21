@@ -51,7 +51,7 @@ export default function Login() {
                 <input className={styles.boxes} placeholder="password" type="password" value={data.password}
                        onChange={(env) => setData({...data, password: env.target.value})}/>
                 <input className={styles.signin} type="submit" value="SIGN IN"/>
-                <p className={styles.common}>Don't have an account? <Link className={styles.common} href="/signup">Sign up</Link>.</p>
+                <p className={styles.common}>Don't have an account? <Link className={styles.link} href="/signup">Sign up</Link>.</p>
                 <p className={styles.common}>{message}</p>
             </form>
 

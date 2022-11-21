@@ -29,6 +29,11 @@
   background-color: #303030;
 }
 
+.link{
+  background-color: #303030;
+  color: rgba(83, 101, 192, 0.94);
+}
+
 .boxes{
   padding-left: 8px;
   border-radius: 8px;

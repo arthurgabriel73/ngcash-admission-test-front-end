@@ -17,6 +17,11 @@
   width: 100%;
 }
 
+.link{
+  background-color: #303030;
+  color: rgba(83, 101, 192, 0.94);
+}
+
 .signin{
   border-radius: 5px;
   font-family: 'Open Sans', sans-serif;

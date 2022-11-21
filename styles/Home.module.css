@@ -1,10 +1,15 @@
 .container {
+  width: 80%;
+  height: 50%;
+  margin-left: 10%;
+  border-radius: 10px;
   font-family: 'Open Sans', sans-serif;
   background-color: #303030;
   padding: 0 2rem;
 }
 
 .main {
+  margin: 150px auto;
   background-color: #303030;
   min-height: 100vh;
   padding: 4rem 0;
@@ -12,7 +17,62 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.actualBalance{
+  border-color: #00FF5F;
+  margin-bottom: 0;
+  background-color: #303030;
+  color: #757575;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+}
+
+.message {
+  border-color: #00FF5F;
+  margin-top: 0;
+  margin-bottom: 15px;
+  background-color: #303030;
+  color: #757575;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+}
+
+.filters {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #303030;
+}
+
+.boxers {
+  color: #cccccc;
+  padding-left: 8px;
+  border-color: #00FF5F;
+  margin-right: 10px;
+  border-radius: 5px;
+  background: #3C3939;
+}
+
+.common {
+  color: #cccccc;
+  font-size: 16px;
+  margin-top: 4px;
+  text-align: left;
+  background-color: #303030;
+}
+
+.tables {
+  border-color: rgba(0, 0, 0, 0.67);
+  color: #101010;
+  background-color: #00FF5F;
+}
+
+.button {
+  border-color: #073a0c;
+  color: rgba(16, 16, 16, 0.61);
+  border-radius: 5px;
+  background-color: #00FF5F;
+  width: 100px;
+  height: 30px;
 }
 
 .footer {
